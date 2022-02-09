@@ -33,7 +33,7 @@ public class GreetingController {
     // Note that here CrossOrigin annotation is not used but specified
     // in the application class
     @GetMapping("/greeting-javaconfig")
-    public Greeting greetingWithJavaconfig(String name) {
+    public Greeting greetingWithJavaconfig(@RequestParam(name="name", required=false, defaultValue="World") String name) {
         System.out.println("**== Greeting with Java Config ==**");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
